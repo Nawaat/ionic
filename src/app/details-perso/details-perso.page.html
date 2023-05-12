@@ -1,0 +1,42 @@
+<ion-app>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>{{ perso?.Perso.name }}</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tabs/persos"> </ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content fullscreen>
+
+    <ion-card>
+      <img src="{{perso?.Perso.image}}" />
+      <ion-card-header>
+        <ion-card-title>{{ perso?.Perso.name }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the
+        Wisconsin Territory in 1836.
+      </ion-card-content>
+
+      <ion-footer>
+        <ion-buttons>
+          <ion-button slot="start" (click)="deletePerso(perso?.Perso._id)">
+            <ion-icon slot="icon-only" size="large" name="trash-outline"></ion-icon>
+          </ion-button>
+
+          <ion-button slot="end" [routerLink]="['/tabs/Form/',perso?.Perso._id]">
+            <ion-icon slot="icon-only" size="large" name="create-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-footer>
+
+    </ion-card>
+
+  </ion-content>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"> </script>
+  <script nomodule src="https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js"> </script>
+</ion-app>

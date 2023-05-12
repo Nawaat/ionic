@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>persos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngFor="let element of persos?.Perso">
+
+    <ion-item class="ion-activated" [routerLink]="[element._id]">
+
+      <ion-thumbnail slot="start">
+        <img src="{{element.image}}" alt="">
+      </ion-thumbnail>
+
+      <ion-label>{{element.name}}</ion-label>
+    </ion-item>
+
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/tabs/Form">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

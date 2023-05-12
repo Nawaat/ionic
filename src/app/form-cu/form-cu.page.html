@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{this.updating?'Update Your Post':'Create your Post'}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/persos"> </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+  <ion-row color="primary" class="ion-text-center">
+    <ion-col size-md="6" offset-md="3">
+     
+        <ion-card-header>
+          {{this.updating?'Update Your Post':'Create your Post'}}
+        </ion-card-header>
+
+       
+          <form [formGroup]="Form" (ngSubmit)="updating? UpdatePerso():AddPerso()">
+            <ion-item>
+           
+              <ion-input type="photo" formControlName="image" placeholder="Image" ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              
+              <ion-input formControlName="name" placeholder="Name"></ion-input>
+            </ion-item>
+
+            <ion-item>
+
+              <ion-select formControlName="id_anime" [interfaceOptions]="customActionSheetOptions"
+                interface="action-sheet" placeholder="Select One">
+                <ion-select-option *ngFor="let Anim of animes?.Anime" value="{{Anim._id}}"> {{Anim.name}}
+                </ion-select-option>
+
+              </ion-select>
+            </ion-item>
+
+            <ion-button expand="full" type="submit" class="ion-margin-top">
+              {{updating ? 'Update': 'Save'}}
+
+            </ion-button>
+          </form>
+       
+
+    </ion-col>
+  </ion-row>
+
+</ion-content>
